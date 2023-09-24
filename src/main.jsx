@@ -8,12 +8,30 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from './Component/Root/Root.jsx';
+import Donation from './Component/Donation/Donation.jsx';
+import Statistics from './Component/Statistics/Statistics.jsx';
+import Home from './Component/Home/Home.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    children:[
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/Donation",
+        element: <Donation></Donation>,
+      },
+      {
+        path: "/Statistics",
+        element: <Statistics></Statistics>,
+      },
+    ]
   },
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

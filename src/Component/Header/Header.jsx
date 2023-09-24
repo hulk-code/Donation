@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import './Header.css'
 
 
+
 const Header = () => {
   const links = <>
  <li><NavLink to='/'>Home</NavLink></li> 
@@ -14,7 +15,8 @@ const Header = () => {
 </>
 
     return (
-        <div className="navbar bg-base-100 lg:w-[1300px] mx-auto">
+        <div>
+          <div className="navbar bg-base-100 lg:w-[1300px] mx-auto">
   <div className="flex-1">
     
     <img src="https://i.ibb.co/ypgWC6v/Logo.png" alt="" />
@@ -26,6 +28,8 @@ const Header = () => {
     </ul>
   </div>
 </div>
+
+        </div>
     );
 };
 
