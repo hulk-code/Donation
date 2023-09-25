@@ -7,7 +7,7 @@ const Banner = () => {
       
     <div>
        
-            <div className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/8YcSngx/markus-winkler-w-LBVAF-k-MR0-unsplash.jpg)'}}>
+            <div className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/RjJGgvg/donate.jpg)'}}>
   <div className="hero-overlay bg-opacity-90"></div>
   <div className="hero-content text-center text-neutral-content">
    

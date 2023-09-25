@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const Card = ({ card }) => {
-    console.log(card);
+    // console.log(card);
     const { id,image, category, title, description, textColor, backgroundColor, categoryColor } = card;
 
     const cardStyle = {
