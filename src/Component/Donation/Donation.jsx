@@ -6,6 +6,7 @@ import ShowDonateCard from "../ShowDonateCard/ShowDonateCard";
 
 const Donation = () => {
     const alldonateData=useLoaderData();
+    // console.log('ajgfdisagfs',alldonateData);
     const [myDonation , setMyDonation]=useState([])
     // console.log(alldonateData);
     const [showAllbtn , setahowallBtn]=useState(4)
@@ -27,14 +28,16 @@ const Donation = () => {
          
         }
        
-    }, [])
+
+    }, [alldonateData])
+    //   console.log( 'this is my donetion',myDonation);
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-10 lg:w-[1300px] m-auto">
 
             {
                 myDonation.slice(0 , showAllbtn).map(donations => <ShowDonateCard key={donations.id} donations={donations}></ShowDonateCard>)
             }
-    <div className={showAllbtn === myDonation.length && 'hidden'}>
+    <div className={showAllbtn === myDonation.length ? 'hidden' : ''}>
         <button className="bg-red-600 p-2" onClick={() => setahowallBtn(myDonation.length)}>Show all</button>
     </div>
             

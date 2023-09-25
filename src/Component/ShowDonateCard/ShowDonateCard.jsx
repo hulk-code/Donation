@@ -2,7 +2,7 @@
 
 
 const ShowDonateCard = ({donations}) => {
-    console.log(donations);
+    // console.log(donations);
     const{id,image,category,title,donateAmount,textColor, backgroundColor,categoryColor}=donations;
 
     const cardStyle = {

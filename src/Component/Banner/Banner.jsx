@@ -1,8 +1,31 @@
+import { useState } from "react";
+import Card from "../Card/Card";
 
 
 
 
-const Banner = () => {
+const Banner = ({cards}) => {
+ 
+  const [searchText, setSearchText] = useState(""); // State to manage search input
+  const [filteredCards, setFilteredCards] = useState(cards);
+  // console.log(cards);
+
+  const handleSearch= e =>{
+    // console.log(e);
+     e.preventDefault();
+     const searchTerm = e.target.search.value.toLowerCase();
+    setSearchText(searchTerm);
+
+    // console.log(e.target.search.value);
+    // console.log('clickeddd');
+    const filtered = cards.filter((card) =>
+      card.category.toLowerCase().includes(searchTerm)
+    );
+
+    setFilteredCards(filtered);
+    console.log(filteredCards);
+  };
+
     return (
       
     <div>
@@ -13,13 +36,23 @@ const Banner = () => {
    
     <div className="">
     <p className="text-5xl text-black font-bold mb-5">I Grow By Helping People In Need</p>
-    <div className="flex">
-    <input type="text" placeholder="Type here" className="input input-bordered w-full" />
+
+    <div >
+    <form action=""className="flex" onSubmit={handleSearch} >
+    <input type="text" name="search" placeholder="Type here" className="input input-bordered text-black w-full" />
     <button className="btn btn-primary">Search</button>
+    </form>
     </div>
     </div>
   </div>
 </div>
+{
+  // filteredCards.map(card => <Card key={card.id} card={card}></Card>)
+      // filteredCards.map((card) => (
+      //  <Card key={card.id} card={card}></Card>
+      // ))
+      }
+
     </div>
     );
 };
