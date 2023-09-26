@@ -1,14 +1,15 @@
 
-import { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-import { getSaveDonateCard } from '../Utility/SaveDonateToLS';
-import DonationPicChart from '../DonationPicChart/DonationPicChart';
+import { getSaveDonateCard } from "../Utility/SaveDonateToLS";
 
+import PicChart from "../PicChart/PicChart";
 
 const Statistics = () => {
   const loadCardData = useLoaderData();
   const [myDonation, setMyDonation] = useState([]);
+  console.log(loadCardData, myDonation);
 
   useEffect(() => {
     const storedCard = getSaveDonateCard();
@@ -27,22 +28,12 @@ const Statistics = () => {
       setMyDonation(myDonates);
     }
   }, [loadCardData]);
-// console.log(myDonation,loadCardData);
-  // Calculate the total sum of values in myDonation
-  const myDonationTotalValue = myDonation.reduce((total, entry) => {
-    const numericValue = parseFloat(entry.value);
-    return isNaN(numericValue) ? total : total + numericValue;
-  }, 0);
-
-  // Calculate the percentage of myDonation compared to the total percentage
-  const myDonationPercentage = (myDonationTotalValue / 1000) * 100; // Replace 1000 with your desired total value
-// console.log(myDonationPercentage,myDonationTotalValue);
 
   return (
-    <div>
-    <h1>Donation Statistics</h1>
-    <DonationPicChart myDonationTotalValue={loadCardData} myDonationPercentage={myDonation} />
-  </div>
+    <div className='border '>
+      
+      <PicChart loadCardData={loadCardData} myDonation={myDonation} />
+    </div>
   );
 };
 
