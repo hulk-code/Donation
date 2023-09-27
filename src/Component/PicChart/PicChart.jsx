@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 
-import { PieChart, Pie, Cell, } from "recharts";
+import { PieChart, Pie, Cell, Legend, } from "recharts";
 
 const PicChart = ({ loadCardData, myDonation }) => {
 
   const data = [
     
-    { name: "Your Donations", value: loadCardData?.length },
+    { name: "Total Donations", value: loadCardData?.length-myDonation?.length },
     
-    { name: "Other Donations", value: myDonation?.length },
+    { name: "Your Donations", value: myDonation?.length },
   ];
 
   const COLORS = ["#0088FE", "#FFBB28"];
@@ -22,9 +22,11 @@ const PicChart = ({ loadCardData, myDonation }) => {
     percent,
     index,
   }) => {
+    const RADIAN = Math.PI / 180;
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos((-midAngle * Math.PI) / 180);
-    const y = cy + radius * Math.sin((-midAngle * Math.PI) / 180);
+  
+    const x = cx + radius * Math.cos((-midAngle * RADIAN) );
+    const y = cy + radius * Math.sin((-midAngle * RADIAN) );
 
     return (
       <text
@@ -55,7 +57,9 @@ const PicChart = ({ loadCardData, myDonation }) => {
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
-     
+       <Legend>
+        
+      </Legend> 
       
     </PieChart>
     

@@ -1,8 +1,7 @@
-# React + Vite
+- Add three featured of my project:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- dynamically load the data from fake api
 
-Currently, two official plugins are available:
+- Create dynamic donation card and possible to select the card and the information of selected card are stored in the local storage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- calculate the percentage in between the total card with the selected card and show those data in a pie chart.

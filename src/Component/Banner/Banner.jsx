@@ -1,19 +1,24 @@
-/* eslint-disable react/prop-types */
+import { useState } from "react";
+import CardContainer from "../CardContainer/CardContainer";
 
 
 
 
-const Banner = () => {
+
+const Banner = ({cards}) => {
  
-  // const [searchText, setSearchText] = useState(""); // State to manage search input
-  // const [filteredCards, setFilteredCards] = useState(cards);
-  // // console.log(cards);
-
-  // const handleSearch= e =>{
-  //   // console.log(e);
-  //    e.preventDefault();
-  //    const searchTerm = e.target.search.value.toLowerCase();
-  //   setSearchText(searchTerm);
+  const [searchText, setSearchText] = useState(""); // State to manage search input
+  const [filteredCards, setFilteredCards] = useState(cards);
+  const [showFiltered, setShowFiltered] = useState(false)
+  console.log(cards);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchTerm = searchText.toLowerCase();
+    const filtered = cards.filter((card) =>
+    card.title.toLowerCase().includes(searchTerm)
+  );
+  setFilteredCards(filtered);
+   setShowFiltered(true);
 
   //   console.log(e.target.search.value);
   //   console.log('clickeddd');
@@ -23,7 +28,7 @@ const Banner = () => {
 
   //   setFilteredCards(filtered);
   //   console.log(filteredCards);
-  // };
+   };
 
     return (
       
@@ -36,22 +41,26 @@ const Banner = () => {
     <div className="">
     <p className="text-5xl text-black font-bold mb-5">I Grow By Helping People In Need</p>
 
-    <div >
-    <form action=""className="flex"  >
-    <input type="text" name="search" placeholder="Type here" className="input input-bordered text-black w-full" />
-    <button className="btn btn-primary">Search</button>
-    </form>
-    </div>
+    <div>
+              <form action="" className="flex" onSubmit={handleSearch}>
+                <input
+                  type="text"
+                  name="search"
+                  placeholder="Type here"
+                  className="input input-bordered text-black w-full"
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                />
+                <button type="submit" className="btn btn-primary">
+                  Search
+                </button>
+              </form>
+            </div>
     </div>
   </div>
 </div>
-{
-  // filteredCards.map(card => <Card key={card.id} card={card}></Card>)
-      // filteredCards.map((card) => (
-      //  <Card key={card.id} card={card}></Card>
-      // ))
-      }
-
+   {
+   showFiltered && <CardContainer filteredCards={filteredCards} />}
     </div>
     );
 };
