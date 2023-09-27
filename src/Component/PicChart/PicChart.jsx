@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { PieChart, Pie, Cell, Legend, } from "recharts";
+import { PieChart, Pie, Cell, Legend, Tooltip, } from "recharts";
 
 const PicChart = ({ loadCardData, myDonation }) => {
 
@@ -57,6 +57,7 @@ const PicChart = ({ loadCardData, myDonation }) => {
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
         ))}
       </Pie>
+      <Tooltip></Tooltip>
        <Legend>
         
       </Legend> 
