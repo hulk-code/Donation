@@ -11,6 +11,7 @@ const Donation = () => {
 
   useEffect(() => {
     const storedCard = getSaveDonateCard();
+    console.log(storedCard);
     if (alldonateData.length > 0) {
       const myDonates = [];
       for (const id of storedCard) {
@@ -21,8 +22,12 @@ const Donation = () => {
       }
       console.log(myDonates);
       setMyDonation(myDonates);
+      // window.location.reload();
+      
     }
   }, [alldonateData]);
+  console.log(alldonateData,);
+  console.log(myDonation);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-10 lg:w-[1300px] m-auto">

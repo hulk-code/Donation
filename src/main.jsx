@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+
 import './index.css'
 
 import {
@@ -28,17 +28,17 @@ const router = createBrowserRouter([
       {
         path: "/Donation",
         element: <Donation></Donation>,
-        loader: () => fetch('Data.json')
+        loader: () => fetch('../data.json')
       },
       {
         path: "/Statistics",
         element: <Statistics></Statistics>,
-        loader : () => fetch('Data.json')
+        loader : () => fetch('/data.json')
       },
       {
         path: "/card/:id",
         element: <CardDetails></CardDetails>,
-        loader: () => fetch('../Data.json')
+        loader: () => fetch('../data.json')
       },
       
     ]

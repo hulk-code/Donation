@@ -11,7 +11,7 @@ const Home = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false); 
 
   useEffect(() => {
-    fetch('Data.json')
+    fetch('/data.json')
       .then(res => res.json())
       .then(data => setCardData(data))
   }, []);
